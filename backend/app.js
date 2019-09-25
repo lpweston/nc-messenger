@@ -1,18 +1,15 @@
-const app = require('express')();
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+const app = require("express")();
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
 
-server.listen(3000);
-
-io.on('connection', function(socket) {
-  console.log('user connected');
-
-  socket.on('disconnect', function() {
-    console.log('user disconnected');
+io.on("connection", function(socket) {
+  console.log("connected");
+  socket.on("login", function(username) {
+    console.log("inside login");
+    console.log(username);
   });
+});
 
-  socket.on('chat', function(data) {
-    console.log('message: ' + data);
-    io.emit('chat', data);
-  });
+http.listen(9090, () => {
+  console.log("listening on 9090..");
 });
