@@ -40,7 +40,7 @@ class Login extends Component {
   sendUser = event => {
     event.preventDefault();
     const { username, imageUrl } = this.state;
-    socket.emit("login", { body: username });
+    socket.emit("login", { username, imageUrl });
   };
 
   handleChange = e => {
