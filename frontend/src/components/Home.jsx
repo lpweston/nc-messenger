@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import io from "socket.io-client";
+import Users from "./Users";
 
 class Home extends Component {
   render() {
@@ -17,13 +17,7 @@ class Home extends Component {
             </label>
           </form>
         </main>
-        <div>
-          Users:
-          <ul>
-            <li>Dave</li>
-            <li>Sarah</li>
-          </ul>
-        </div>
+        <Users />
       </div>
     );
   }
