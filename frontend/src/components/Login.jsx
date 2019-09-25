@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
 import { Link } from "@reach/router";
-
+const socket = io("http://localhost:9090");
 class Login extends Component {
   state = {
     username: "",
@@ -9,7 +9,7 @@ class Login extends Component {
   };
   render() {
     return (
-      <form>
+      <form onSubmit={this.sendUser}>
         <label>
           Username:{" "}
           <input
@@ -31,14 +31,14 @@ class Login extends Component {
         <br />
         <br />
         <Link to="/home">
-          <button onSubmit={this.sendChat}>Login</button>
+          <button type="submit">Login</button>
         </Link>
       </form>
     );
   }
 
-  sendChat = () => {
-    const socket = io.connect("http://localhost:9090");
+  sendUser = event => {
+    event.preventDefault();
     const { username, imageUrl } = this.state;
     socket.emit("login", { username, imageUrl });
   };

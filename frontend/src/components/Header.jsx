@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <header>
-      <h1>NC Messenger</h1>
+      <h1>NC MEssenger</h1>
     </header>
   );
 };

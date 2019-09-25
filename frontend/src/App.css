@@ -10,3 +10,9 @@ li {
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
+
+main,
+.Users {
+  border: 2px solid black;
+  margin: 10px;
+}
